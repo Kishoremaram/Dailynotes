@@ -1,0 +1,24 @@
+Linux commands:
+----------------
+ls
+ls -la
+mkdir
+touch
+cat
+cat > file
+cat >> file
+cd
+pwd
+rmdir
+rm - r dir
+rm -f file
+rm -rf sir
+cp file1 file2
+mv dir1 dir2
+cp -r dir1 dir2
+mv file1 file2
+more file
+head file
+tail file
+head -5 file
+tail -5 file

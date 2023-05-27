@@ -1,0 +1,12 @@
+Linux commands:
+-------------------------------
+uniq : used to form sorted list in which every word will occur only once.
+wc : used to count lines, words & characters in file.
+sort : used to sort files in alphabetical order.
+gzip : used to truncate file size. It is compressing tool.
+gunzip : used to decompress file.
+date : used to display date, time, timezone.
+cal : used to display current month calender.
+sleep : used to hold terminal by specified amount of time (in seconds)
+time : used to display time.
+zcat : used to display zip files

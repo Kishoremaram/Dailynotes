@@ -1,0 +1,310 @@
+Advanced searching:
+--------------------
+The advanced search allows you to build structured queries using the Jira Query Language (JQL) to search for issues.
+You can specify criteria that cannot be defined in the quick or basic searches.
+For example, you can use the ORDER BY clause to sort Jira issues either in descending or ascending order or narrow 
+down your search results for the desired date range.
+
+If you don't have complex search criteria, you may want to use quick search instead.
+If you aren't comfortable with the Jira Query Language (JQL), you may want to use basic search instead.
+
+If the basic search is shown instead of the advanced search, select Advanced (next to the Search button).
+
+Jira will offer a list of "auto-complete" suggestions based on the context of your query.
+
+A query created using basic search will be able to be translated to advanced search, and back again.
+A query created using an advanced search may not be able to be translated into a basic search.
+
+Constructing JQL queries
+-------------------------
+A simple query in JQL consists of a field, followed by an operator, followed by one or more values or functions.
+Query 1: project = "opencart" [It uses the project field, the EQUALS operator, and the value opencart]
+Query 2: project = "opencart" AND assignee = currentUser() [This query will find all issues in the "opencart" project 
+							    where the assignee is the currently logged in user. 
+							    It uses the project field, the EQUALS operator, the value opencart,
+							    the AND keyword and the currentUser() function.]
+Query 3: project = "opencart" and created > startOfYear() and updated > startOfMonth() [A JQL query that will find issues created 
+											since the start of the current year and 
+											updated since the start of the current month]
+Query 4: project = "opencart" AND text ~ "Defect in login" [A JQL query that will find any issues that are created in the "opencart" project 
+								and contain the "Defect in login" text in a summary or description]
+Precedence in JQL queries:
+--------------------------
+Precedence in JQL queries depends on keywords that you use to connect your clauses.
+AND keyword as the one grouping clauses.
+OR keyword as the one separating them.
+The AND keyword takes precedence over other keywords because it groups clauses together.
+
+Query 1: status= "In Progress" AND project="opencart" OR assignee=kishoremaram1991 [This query will return all "in progress" issues from 
+										    the "opencart" project (clauses grouped by AND), and also all 
+										    existing issues assigned to "kishoremaram1991". The clause 
+										    after the OR keyword is treated as separate.]
+Query 2: status= "Closed" OR project="opencart" AND assignee=kishoremaram1991 [This query will return all "Closed" issues from the "opencart" 
+										project (clauses grouped by OR), and also all 
+										existing issues assigned to "kishoremaram1991". 
+										The clause after the AND keyword is treated as separate]
+Query 3: status= "Closed" OR project="opencart" OR assignee=kishoremaram1991 [When you only use the OR keyword, all clauses will be treated
+									       as separate, and equal in terms of precedence.]
+
+Setting the precedence:
+-----------------------
+You can set precedence in your JQL queries by using "parentheses". Parentheses will group certain clauses together and enforce precedence.
+Query 1: status= "In Progress" AND (project="opencart" OR assignee=kishoremaram1991)  [This query would return "In Progress" issues that either 
+											belong to the "opencart" project or are assigned 
+											to "kishoremaram1991".]
+Query 2: (status= "In Progress" AND project="opencart") OR assignee=kishoremaram1991  [they wouldn’t have any effect because the clauses enclosed
+										       in parentheses were already connected by AND. 
+										       This query would return the same results with or without 
+										       the parentheses.]
+Restricted words and characters:
+--------------------------------
+JQL has a list of reserved characters: "space (" ")" , "+" , "." , "," , ";" , "?" , "|" , "*" , "/" , "%" , "^" , "$" , "#" , "@" , "[" , "]"
+These words need to be surrounded by quotation marks (single or double) if you wish to use them in queries.
+
+Differences between day and time search:
+----------------------------------------
+A day (1d) and time (24h) values are differently calculated in a query and don’t return the same results:
+	-If you use "1d", the start of the day will start calculating at 00:00 of the server timezone unless you also add the exact time.(24 hours from the time you executed the JQL).
+	-If you use "24h", it will start calculating from the hour when you executed it (-24 hours from the time you run the JQL).
+Example: Let's assume that you updated an issue's status to "Closed" yesterday at 3 PM. You run the following queries at 1 PM today.
+Query : status changed to "Closed" after -1d [won't return the closed issue. However, it'll return the result if you run status changed to "Closed" after -2d.]
+Query : status changed to "Closed" after -24h will return the closed issue.
+
+Fields: A field in JQL is a word that represents a Jira field (or a custom field that has already been defined in Jira)
+	Eg: assignee, attachments, created, description, issueKey, reporter, resolved, sprint, status, summary, text, timeSpent, updated, etc.,
+Operators: An operator in JQL is one or more symbols or words that compare the value of a field on its left with one or more values (or functions) on its right.
+	Eg: EQUALS: =, NOT EQUALS: !=, GREATER THAN: >, GREATER THAN EQUALS: >=, LESS THAN: <, LESS THAN EQUALS: <=, 
+	    IN, NOT IN, CONTAINS: ~, DOES NOT CONTAIN: !~, IS, IS NOT, WAS, WAS IN, WAS NOT IN, WAS NOT, CHANGED.
+Keywords: joins two or more clauses together to form a complex JQL query.
+	Eg: AND, OR, NOT, EMPTY, NULL, ORDER BY.
+Functions: A function in JQL appears as a word followed by parentheses, which may contain one or more explicit values or Jira fields.
+	Eg: currentUser(), endOfDay(), endOfMonth(), endOfWeek(), endOfYear(), startOfDay(), startOfMonth(), startOfWeek(), startOfYear(), subtaskIssueTypes() etc.,
+
+Running a saved search:
+-----------------------
+You can find saved searches (also known as Saving your search as a filter) in the left-side panel, when using advanced search. 
+
+Advanced searching - keywords reference
+---------------------------------------
+A keyword in JQL is a word or phrase which joins two or more clauses together to form a complex JQL query.
+
+AND: Used to combine multiple clauses, allowing you to refine your search. You can also use parentheses to control the order in which clauses are executed.
+OR : Used to combine multiple clauses, allowing you to expand your search. ou can also use parentheses to control the order in which clauses are executed.
+NOT : Used to negate individual clauses or a complex JQL query. 
+EMPTY : Used to search for issues where a given field does not have a value. Note that EMPTY can only be used with fields that support the IS and IS NOT operators.
+NULL : Used to search for issues where a given field does not have a value.Note that NULL can only be used with fields that support the IS and IS NOT operators.
+ORDER BY: Used to specify the fields by whose values the search results will be sorted.	By default, the field's own sorting order will be used. 
+	  You can override this by specifying ascending order ("asc") or descending order ("desc").
+
+Advanced searching - fields reference
+-------------------------------------
+Affected version: Search for issues that are assigned to a particular affects version(s). You can search by version name or version ID.
+Approvals : Search for issues that have been approved or require approval.
+Assignee : Search for issues that are assigned to a particular user. You can search by the user's full name, ID, or email address.
+Attachments : Search for issues that have or do not have attachments. 
+Category : Search for issues that belong to projects in a particular category.
+Comment : Search for issues that have a comment that contains particular text.
+Component : Search for issues that belong to a particular component(s) of a project. You can search by component name or component ID.
+Created : Search for issues that were created on, before, or after a particular date (or date range).
+Creator : Search for issues that were created by a particular user. You can search by the user's full name, ID, or email address.
+Custom field : Search for issues where a particular custom field has a particular value. You can search by custom field name or custom field ID.
+Summary: Search for issues where the summary contains particular text. 
+Project: Search for issues that belong to a particular project. You can search by project name, by project key or by project ID
+Description: Search for issues where the description contains particular text. 
+
+Advanced searching - operators reference
+----------------------------------------
+EQUALS: = : The = operator is used to search for issues where the value of a specified field exactly matches a specified value.
+	    To find issues where the value of a specified field exactly matches multiple values, use multiple EQUALS (=) statements with the AND keyword. 
+Eg: reporter = "John Smith"
+
+NOT EQUALS: != : The != operator is used to search for issues where the value of a specified field doesn't match a specified value.
+Eg: assignee != jsmith
+
+GREATER THAN: > : The > operator is used to search for issues where the value of a specified field is greater than a specified value.
+Eg: votes > 4
+
+GREATER THAN EQUALS: >= : The >= operator is used to search for issues where the value of a specified field is greater than or equal to a specified value.
+Eg: votes >= 4
+
+LESS THAN: < : The < operator is used to search for issues where the value of a specified field is less than a specified value.
+Eg: votes < 4
+
+LESS THAN EQUALS: <= : The <= operator is used to search for issues where the value of a specified field is less than or equal to a specified value.
+Eg: votes <= 4
+
+IN : The IN operator is used to search for issues where the value of a specified field is one of multiple specified values. 
+     The values are specified as a comma-separated list, surrounded by parentheses.
+Eg: reporter in (jsmith,jbrown,jjones)
+
+NOT IN: The NOT IN operator is used to search for issues where the value of a specified field isn't one of multiple specified values.
+Eg: assignee not in (Jack,Jill,John)
+
+CONTAINS: ~ : The ~ operator is used to search for issues where the value of a specified field matches a specified value.
+Eg: summary ~ "issue collector"
+
+DOES NOT CONTAIN: !~ : The !~ operator is used to search for issues where the value of a specified field doesn't match a specified value. 
+Eg: fixVersion !~ "9.0"
+
+IS : The IS operator can only be used with the EMPTY or NULL keywords. That is, it's used to search for issues where the specified field has no value.
+Eg: fixVersion is empty
+
+IS NOT: The IS NOT operator can only be used with the EMPTY or NULL keywords. That is, it's used to search for issues where a specified field has a value.
+Eg: votes is not empty
+
+WAS: The WAS operator is used to find issues that currently have or previously had a specified value for a specified field.
+Eg: status WAS "Resolved" BY jsmith BEFORE "2011/02/20"
+
+WAS IN: The WAS IN operator is used to find issues that currently have or previously had any of multiple specified values for a specified field. 
+	The values are specified as a comma-separated list, surrounded by parentheses.
+Eg: status WAS IN ("Resolved","In Progress")
+
+WAS NOT IN: The WAS NOT IN operator is used to search for issues where the value of the specified field has never been one of multiple specified values.
+Eg: status WAS NOT IN ("Resolved","In Progress")
+
+WAS NOT: The WAS NOT operator is used to find issues that have never had a specified value for a specified field.
+Eg: status WAS NOT "In Progress" BEFORE "2011/02/20"
+
+CHANGED: The CHANGED operator is used to find issues where the value of a specified field was changed.
+Eg: status CHANGED FROM "In Progress" TO "Open"
+
+Advanced searching - functions reference:
+-----------------------------------------
+approved() : Search for issues that required approval and have a final decision of approved.
+Eg: Approvals = approved()
+
+approver() : Search for issues that require or required approval by one or more of the listed users. 
+	     This uses an OR operator, and you must specify the usernames.
+Eg: approval = approver(jsmith,skhan)
+
+closedSprints(): Search for issues that are assigned to a completed Sprint.
+Eg: sprint in closedSprints()
+
+componentsLeadByUser() : Find issues in components that are led by a specific user.
+Eg: component in componentsLeadByUser() AND status = Open
+
+currentLogin(): Perform searches based on the time at which the current user's session began.
+Eg: created > currentLogin()
+
+currentUser() : Perform searches based on the currently logged-in user.
+Eg: assignee = currentUser()
+
+earliestUnreleasedVersion() : Perform searches based on the earliest unreleased version (i.e. next version that is due to be released) of a specified project. 
+Eg: fixVersion = earliestUnreleasedVersion(ABC Project)
+
+endOfDay() : Perform searches based on the end of the current day. 
+Eg: due < endOfDay()
+
+endOfMonth() : Perform searches based on the end of the current month. 
+Eg: due <= endOfMonth()
+
+endOfWeek() : Perform searches based on the end of the current week.
+Eg: due < endOfWeek()
+
+endOfYear() : Perform searches based on the end of the current year.
+Eg: due < endOfYear()
+
+futureSprints() : Search for issues that are assigned to a sprint that hasn't been started yet.
+		  It is possible for an issue to belong to both completed and incomplete sprints. 
+Eg: sprint in futureSprints()
+
+issueHistory() : Find issues that you have recently viewed, i.e. issues that are in the Recent Issues section of the Issues dropdown menu.
+Eg: issue in issueHistory() AND assignee = currentUser()
+
+lastLogin() : Perform searches based on the time at which the current user's previous session began. 
+Eg: created > lastLogin()
+
+latestReleasedVersion() : Perform searches based on the latest released version (i.e. the most recent version that has been released) of a specified project. 
+Eg: fixVersion = latestReleasedVersion(ABC)
+
+linkedIssues() : Perform searches based on issues that are linked to a specified issue. 
+Eg: issue in linkedIssues(issueKey)
+
+membersOf(): Perform searches based on the members of a particular group.
+Eg: assignee in membersOf("Jira-administrators")
+
+now() : Perform searches based on the current time.
+Eg: duedate < now() and status not in (closed, resolved)
+
+openSprints(): Search for issues that are assigned to a Sprint that has not yet been completed.
+Eg: sprint in openSprints()
+
+projectsLeadByUser() : Find issues in projects that are led by a specific user.
+Eg: project in projectsLeadByUser() AND status = Open
+
+watchedIssues(): Perform searches based on issues that you are watching.
+Eg: issue in watchedIssues()
+
+votedIssues(): Perform searches based on issues for which you have voted.
+Eg: issue in votedIssues()
+
+updatedBy(): Search for issues that were updated by a specific user.
+Eg: issuekey IN updatedBy(jsmith)
+
+projectsWhereUserHasRole(): Find issues in projects where you have a specific role. Note, this function is only available if you are logged in to Jira.
+Eg: project in projectsWhereUserHasRole("Developers") AND status = Open
+
+releasedVersions(): Perform searches based on the released versions (i.e. versions that your Jira administrator has released) of a specified project. 
+Eg: fixVersion in releasedVersions(ABC)
+
+standardIssueTypes(): Perform searches based on "standard" Issue Types, that is, search for issues that are not sub-tasks.
+Eg: issuetype in standardIssueTypes()
+
+startOfDay(): Perform searches based on the start of the current day.
+Eg: created > startOfDay()
+
+startOfMonth(): Perform searches based on the start of the current month.
+Eg: created > startOfMonth()
+
+startOfWeek(): Perform searches based on the start of the current week.
+Eg: created > startOfWeek()
+
+startOfYear(): Perform searches based on the start of the current year. 
+Eg: created > startOfYear()
+
+subtaskIssueTypes(): Perform searches based on issues that are sub-tasks. 
+Eg: issuetype in subtaskIssueTypes()
+
+unreleasedVersions(): Perform searches based on the unreleased versions (i.e. versions that your Jira administrator has not yet released) of a specified project. 
+Eg: fixVersion in unreleasedVersions(ABC)
+
+updatedBy(): Search for issues that were updated by a specific user.
+Eg: issuekey IN updatedBy(jsmith)
+
+votedIssues(): Perform searches based on issues for which you have voted. 
+Eg: issue in votedIssues()
+
+watchedIssues(): Perform searches based on issues that you are watching.
+Eg: issue in watchedIssues()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			
+
+
+
+
+
+
+
+

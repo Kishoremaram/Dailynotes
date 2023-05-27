@@ -1,0 +1,171 @@
+Working with search results
+----------------------------
+Once you have run a search, your search results will be displayed in the issue navigator. 
+You may want to triage the entire list of issues or may be looking for just one. 
+This page will show you what you can do with your search results, from changing what you see in the issue navigator to modifying the issues.
+
+Filter panel: Click to collapse the filter panel so you can have more space in the detail view.
+Issue: Select an issue from this panel to see the details in the detail view window.
+Filters: Select a filter to see all the matching issues in the panel to the immediate right.
+Views: Click to switch between the detail view and list view.
+Detail view: Check out all the details about the selected issue in this detail view.
+
+Changing your view of the search results
+----------------------------------------
+List view: Shows your search results as a list of issues. This view is easiest to scan and is best when you only need to know a few details about each issue.
+Detail view: Shows your search results as a list of issues, with the right panel showing the details of the currently selected issue. 
+
+Change the sort order
+---------------------
+Click the column name. If you click the same column name more than once, the sort order will switch between ascending and descending.
+If you sort the search results for an advanced search, an 'ORDER BY' clause will be added/updated for your JQL query to reflect the order of issues in your search results.
+
+Columns — show/hide and move
+----------------------------
+You can create different column configurations for yourself and for specific filters. 
+My Defaults: This is your default column configuration for search results.
+Filter: This is enabled if you are viewing the search results for a filter. It will override your default column configuration.
+System (shows if you are a Jira administrator): This is the column configuration that applies to all users. It will be overridden by a user's default column configuration and filter-specific column configurations.
+
+Working with individual issues
+------------------------------
+View an issue: If you are in List view, you will redirected to the issue (leaving the search results page).
+	       If you are in Detail view, the issue details will display in the right panel.
+Action an issue: To action an issue (e.g. edit it, transition it, log work on it, etc):
+		 If you are in List view, click the cog icon and select from the options.
+		 If you are in Detail view, select the issue and action it the issue via the details panel.
+
+Sharing your search results
+----------------------------
+Click Share in the issue navigator to email a link to a search result or shared filter.
+Recipients will receive an email with a link to the search result and the content of the Note field (if specified). The subject of the email will state that you (using your username) shared the issue.
+If you share the results of a filter, rather than an ad-hoc search, recipients will receive a link to the filter. Note, if the recipient does not have permission to view the filter, they will receive a link to the search results instead.
+
+Displaying your search results in Confluence
+--------------------------------------------
+If your Jira applications are connected to Confluence, you can display your search results on a Confluence page using the Jira issues macro.
+
+Displaying your search results as a chart
+-----------------------------------------
+Click Export > Dashboard charts. Choose the desired chart from the dialog that is displayed, then click Save to Dashboard.
+
+Exporting your search results
+-----------------------------
+CSV:
+Click Export > CSV (All fields) or Export > CSV (Current fields), and choose a delimiter to separate the values.
+The CSV file will contain a header row with every applicable issue field, comment, and attachment in your search result.
+CSV (All fields): this will include every issue field, comment and attachment. The header row may contain multiple values of "Comment" and/or "Attachment" if your issues have multiple comments and/or attachments.
+CSV (Current fields): this will include only issue fields that are currently displayed.
+HTML:
+Click Export > HTML (All fields) or Export > HTML (Current fields).
+The HTML file will contain a header row with a value for every applicable issue field in your search result.
+HTML (All fields): this will create an HTML file for every issue field (excluding comments). This will only show the custom fields that are available for all of the issues in the search results. 
+HTML (Current fields): this will create an HTML file for the issue fields that are currently displayed.
+XML:
+Click Export > XML.
+You can use the URL of the XML view in a Confluence Jira issues macro. However, you can also use the JQL or the URL of the issue search, which are easier to get.
+Word:
+Click Export > Word.
+The export will include the Description, Comments, and all other issue data, not just the issue fields that are currently configured in your Issue Navigator.
+Printable views
+----------------
+Printable: Click Export > Printable.
+Creates a view of your search results in your browser that can be printed 'Landscape'. This view only contains issue Type, Key, Summary, Assignee, Reporter, Priority, Status, Resolution, Created date, Updated date, and Due date.
+Full content:Click Export > Full content.
+Creates a view of your search results in your browser that can be printed. This view contains all issue fields, comments, and a list of attachments (there is no preview) for every issue returned by your search.
+
+Subscribing to your search results
+----------------------------------
+A subscription provides you with a periodic notification for all issues returned by the search. If you want to be notified when a particular issue changes, you should watch the issue instead.
+Email:
+Your search must be saved as a filter, if you want to create an email subscription for it. You can create a subscription of any frequency for yourself and/or other users. Note, only the first 200 results of a filter are sent.
+RSS:
+Click Export > RSS (Issues) or Export > RSS (Comments). The URL of the page that shows can be used in your feed reader.
+
+Bulk modifying issues in your search results
+--------------------------------------------
+Bulk operations let you action multiple issues at once. These actions include transitioning issues, deleting issues, moving issues, and watching/unwatching issues.
+Click Tools > Bulk Change: all <N> issue(s) and follow the 'Bulk Operation' wizard.
+
+Editing multiple issues at the same time
+-----------------------------------------
+At some point, you may need to change multiple issues at the same time. You can do this by performing a Bulk Change operation.
+Required permissions:
+	To perform a bulk change operation, you need the appropriate project-specific permission and the global Bulk Change permission.
+	select Tools > Bulk Change.
+Disable notifications for bulk operations:
+	Some bulk operations, such as Change comment, might trigger email notifications to your customers.
+	Administration () > System > Mail > Outgoing mail
+Transition multiple issues:
+	Tools > Bulk Change, Transition Issues and then select Next
+Delete multiple issues:
+	Select Tools > Bulk Change.
+	Delete Issues and then select Next.
+Move multiple issues:
+	This bulk operation allows you to move multiple issues at the same time. The issues you're moving need to be mapped to both a project and an issue type.
+	Select Tools > Bulk Change.
+	Select Move Issues and then select Next. 
+Edit multiple issues:
+	This bulk operation allows you to edit multiple issues at the same time. The bulk edit operations available depend on the issues selected and the nature of the field/s you want to change.
+	Select Tools > Bulk Change.
+	Select Edit Issues and then select Next.
+Watch / stop watching multiple issues:
+	These bulk operations allows you to start watching or stop watching multiple issues at the same time.
+To watch multiple issues:	
+	Select Tools > Bulk Change.
+	Select Watch Issues and then select Next.
+To stop watching multiple issues:
+	Select Tools > Bulk Change.
+	Select Stop Watching Issues and then select Next.
+Archive multiple issues:
+	If you want to archive thousands of issues at once, instead of selecting the issues manually, you can make a bulk change.
+	Select Tools > Bulk Change.
+	Select Archive issues and then select Next.
+
+Creating issues using the CSV importer
+--------------------------------------
+If you have the Create Issue project permission and the Bulk Change global permission for the relevant projects, 
+you can create issues in bulk by using a comma-separated value (CSV) file.
+CSV files are text files that represent tabulated data and are supported by most applications that handle tabulated data, such as Microsoft Excel, Numbers, and databases.
+Jira's CSV importer (also CSV file import wizard) allows you to import data from external systems that export their data in a tabulated format. Also, you can create your own CSV file to bulk create or update issues.
+There are two main steps to use the CSV importer:
+	- Preparing your CSV file
+	- Running the CSV import wizard
+
+Preparing your CSV file
+-----------------------
+The CSV importer assumes that your CSV file is based off a default Microsoft Excel-styled CSV file:
+Fields are separated by commas.
+
+CSV file requirements
+---------------------
+The file must have a header row. The CSV Importer uses the header row to determine how to map data from the CSV file's second row and beyond to Jira fields.
+The header row must contain the Summary column for the issue’s summary. 
+The header row shouldn’t contain any punctuation, except for commas separating columns or fields. Otherwise, the import may work incorrectly. 
+Commas as column or field separators can’t be omitted throughout the file.  
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+

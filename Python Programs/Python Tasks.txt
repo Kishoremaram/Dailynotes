@@ -1,0 +1,95 @@
+Lists:
+1. reverse a list without using builtin functions
+
+list1 = [1,5,8,10,15]
+print("List before reversed:",list1)
+list2=[]
+for value in list1:
+    list2=[value]+list2
+print("List after reverse:",list2)
+
+2. given a list [1,2,3,...100], get the alternate 5th element
+
+list1=[]
+for i in range(1,101):
+    list1.append(i)
+print("list:",list1)
+list2=[]
+for j in range(5,len(list1),5):
+    list2.append(j)
+print("alternate list:",list2)
+
+3. given with 2 lists, write a code to check if both lists are equal.
+    ex: [1,2,3,2,1] and [1,3,2,2,1] are equal
+
+list1=[]
+for i in range(1,101):
+    list1.append(i)
+print("list:",list1)
+list2=[]
+for j in range(5,len(list1),5):
+    list2.append(j)
+print("alternate list:",list2)
+
+4. what are the different ways to update the list
+Insert, Append, Replace, Delete, Sort, Reverse
+
+5. is it possible to convert list to tuple and vice-versa
+
+list1=["Apple", "Banana", "Mango"]
+tuple1=tuple(list1)
+
+print("List",list1)
+print("Tuple",tuple1)
+
+tuple1=("lion","tiger","dog","cat")
+list1=list(tuple1)
+
+print("Tuple",tuple1)
+print("List",list1)
+
+6. difference between append and extend in list with examples, and where to apply
+    these two in real time scenario?
+Append: use this method when you want to add a sigle item to the end of the list.
+list1.append("orange")
+extend: use this method when you want to add several items to the list as individual items.
+list1.extends(list)
+
+7. what is the best way to read a list of 1-billion elements?
+8. use if push, pop and insert and their real time application
+
+Push --- append
+
+a=[1,2,3,4,5,6]
+a.append(7)
+print(a)
+
+Pop --- pop
+
+x=[1,2,3,4,5]
+x.pop(2)
+print(x)
+
+
+Insert
+
+b=[1,2,3,4,5]
+b.insert(2,2.5)
+print(b)
+
+9. can list be used as key in dictionary? if yes then how? if not then why? with example
+No, 
+Lists are mutable, so we cannot use list as key in dictionary.(Any immutable data type can be used for dictionary keys)
+
+10. can list be used inside the tuple? if yes then how? if not then why? with example
+Yes, 
+tuple1 = ("python",55,3.5,[1,2,3,4,5])
+tuple1[3].append(99)
+
+11. difference between range and xrange
+
+range will return list 			--- xrange will return generator object
+no need of loop in range function 	--- to print values we need looping
+range need more memory space		--- xrange need less memory space
+we can apply list operations in range fn --- we cannot apply list operations in xrange fn
+range function in more faster		--- xrange function is slow

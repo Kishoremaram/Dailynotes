@@ -1,0 +1,126 @@
+Jira Fundamentals
+-------------------
+There are two main roles in Jira: users and administrators. 
+you'll use Jira to track and manage your daily work. 
+
+You won't be setting up new Jira projects. 
+Or adjusting any advanced settings. 
+Your Jira administrator or team leader will take care of that for you.
+
+Jira user
+----------
+
+How they use Jira:
+
+ - Update their assigned work items
+ - Share progress with their team
+ - View their team's progress on work and provide feedback
+
+Jira administrator
+-------------------
+
+How they use Jira:
+
+ - Configure Jira layouts, features, or permissions for a team
+ - Plan resources based on bandwidth, prioritize issues across projects, 
+   and build reports to track team performance
+
+Your main role will be to update your work items
+-------------------------------------------------
+
+Jira can only help if you and your teammates consistently update your work items. 
+In Jira, individual work items are called  issues . 
+Issues are very important in Jira. 
+You'll see them a lot throughout this course.
+
+Issues can vary in size depending on how your team uses them. 
+Some issues take months to complete. 
+Other issues are finished in a few hours.
+
+Working in Jira
+---------------
+
+What's a Jira project?
+
+A project is a collection of issues.
+
+In Jira, every single issue is attached to a project. 
+Projects organize issues in whichever way your team prefers.
+
+Your Jira projects will likely be set up for you. So no need to worry about creating new projects. 
+For now, you'll need to know how to identify your projects and what your projects are named.
+
+How do you identify your projects and see their names?
+
+There are two ways to quickly identify your projects. 
+One is at the top left of your screen, under the Jira logo. 
+This shows the name of the project you are currently viewing. But you may be involved in more than one project.
+
+To see all of your projects, find the main navigation bar and select the 'Projects' dropdown. 
+This will show you a list of all the projects you have access to view.
+
+How are projects named?
+
+That depends on how your team has structured your work.
+
+Sometimes projects are named after an entire team. 
+For example, "Game Design Team" or "Marketing Team" or "Legal Team."
+
+Other times, projects are named after a larger deliverable like an app version release. 
+For example, "Vidzi App Release V2.7" or "Project Melon Web Launch."
+
+Why should you care about project names?
+
+Project names help you see how your team is structuring work. 
+Is your project named after your team or after a deliverable? 
+
+Knowing how your project is named will give you insight into how the work is being structured. 
+And it will help you understand how best to use Jira for your own needs.
+
+Boards are the most common way to see your work
+-----------------------------------------------
+You got a sneak peek of  boards  earlier. What's a board, again? 
+A board is a visual display of work progress, often with 3-4 columns. 
+
+These board columns have headers at the top representing the  status  of each issue. 
+For example, statuses could be: To Do, In Progress, In Review, Done. 
+Statuses are customized by each team, so yours may look different from the examples.
+
+Move issue cards across the board as work gets done
+----------------------------------------------------
+The different status columns together represent a  workflow . 
+A workflow is the path of statuses an issue will go through from start to finish. 
+An example of a simple workflow is an issue moving from To Do to In Progress to Done.
+
+When an issue is ready to be updated, the person responsible for the work can simply drag-and-drop the issue card to a different column on the board. 
+This updates the issue's status so everyone on the team can be in the loop. 
+Issues can move forward and backward in a workflow, depending on how the work gets done.
+
+Kanban boards and Scrum boards
+------------------------------
+
+he example screens you've seen so far have shown a  Kanban board . 
+Kanban boards are used by all types of teams. 
+They illustrate a continuous flow of work. 
+Issues continuously move in and out of the board from the start of the project until the end of the project.
+
+Scrum boards  are mostly used by agile software development teams. 
+Scrum boards bring in groups of issues that the team will attempt to complete during a fixed period of time, often a two-week "sprint." 
+After a sprint is completed, a new scrum board is created for the next batch of issues in the project.
+
+How are boards named?
+----------------------
+
+Just like projects, boards have specific names.
+
+Boards sit within projects. 
+A single Jira project can have several boards. 
+A board is often named after a larger deliverable or team of people.
+
+How do you see all of your boards?
+----------------------------------
+
+You probably have more than one board. 
+Each Jira project often has multiple boards within it. 
+To see all of your boards, navigate to the left project sidebar and select the board dropdown.
+

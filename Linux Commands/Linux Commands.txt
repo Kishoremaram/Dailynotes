@@ -1,0 +1,26 @@
+tac -It displays the file content in reverse order
+more - in case of larger files, the more command displays screenful output at a time.
+	ENTER key: To scroll down page by line. 
+	Space bar: To move to the next page. 
+	b key: To move to the previous page.
+	/ key: To search the string.
+less - The less command is similar to the more command. 
+	It also includes some extra features such as 'adjustment in width and height of the terminal.'
+su - The su command provides administrative access to another user. 
+id - The id command is used to display the user ID (UID) and group ID (GID).
+useradd - The useradd command is used to add or remove a user on a Linux server.
+passwd - The passwd command is used to create and change the password for a user.
+grep - The grep is the most powerful and used filter in a Linux system. 
+	The 'grep' stands for "global regular expression print." 
+	It is useful for searching the content from a file. 
+	Generally, it is used with the pipe.
+comm - The 'comm' command is used to compare two files or streams.
+	By default, it displays three columns, 
+	first displays non-matching items of the first file, 
+	second indicates the non-matching item of the second file, 
+	and the third column displays the matching items of both files.
+sed - The sed command is also known as stream editor. 
+	It is used to edit files using a regular expression. 
+	It does not permanently edit files; 
+	instead, the edited content remains only on display. 
+	It does not affect the actual file.

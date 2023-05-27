@@ -1,0 +1,16 @@
+Linux commands:
+--------------------------
+df - used to display the disk space used in file system.
+exit - used to exit from the current shell.
+clear - used to clear the terminal screen.
+ip a or ip addr - is an updated version of the ipconfig cmd.
+      used to assign IP address, initialize interface, disable interface.
+ping - used to check connectivity between two nodes,
+that is whether the server is connected.
+it is short form of "Packet Internet Group"
+host - used to display IP address for given domain.
+ps -  display current active processes
+whoami - display currently logged-in user.
+man - display user manual of any command
+chmod - changes the access permissions of files and directories.
+eg: chmod u+rw,g+rw,o+rw file1.txt

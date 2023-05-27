@@ -1,0 +1,43 @@
+JQL topics
+------------------
+Three ways of searches
+ 1) Quick Search
+ 2) Binary Search
+ 3) Advanced Search with JQL
+Basic structure of JQL
+Elements of JQL syntax
+ 1) Field
+      System Field - Included with every jira instance.
+      Custom Field - Created by Jira Admin.
+ 2) Value
+ 3) Operator
+ 4) Keyword
+ 5) Function 
+
+Syntax help in jira
+   - Auto complete feature
+   - Space bar feature
+   - Syntax help feature
+How to write JQL query
+Deep dive into functions
+Why should you use functions
+     - MembersOf()
+     - Linkedissue
+     - OpenSprint()
+     - StartOfMonth()
+     - Updated by()
+     - LinkedIssues()
+     - ReleasedVersions()
+How to use JQL to search text based fields.
+     - ~ - "contains"
+     - !~ - "doesnot contains"
+     - "is" operator
+     - "is not" operator
+
+- How to use JQL to search dates
+     - Exact dates
+     - Date functions
+     - Calender functions
+- Combining increment and calender functions.
+- How to write complex JQL queries with multiple clauses using paranthesis and keywords 
+
